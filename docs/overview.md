@@ -15,5 +15,5 @@ Build an online auction platform as five independent microservices, one of which
 
 **Out of scope:** real payment providers (payments are simulated), a production-grade frontend.
 
-## Technology (to be decided by the team)
-Language/framework, database and message broker are not fixed yet. Record the final choices here.
+## Technology
+Node.js, Express, `ws` (WebSocket) and JSON Web Tokens. Data is stored in memory in each service. Services communicate over HTTP; the broker described in the architecture is replaced by direct HTTP calls for simplicity.

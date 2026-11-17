@@ -1,0 +1,10 @@
+{
+  "name": "online-auction",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": ["user-service", "item-service", "bid-service", "payment-service", "realtime-service"],
+  "scripts": {
+    "start": "node scripts/start-all.js",
+    "test": "node scripts/smoke-test.js"
+  }
+}

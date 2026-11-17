@@ -1,0 +1,19 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Live Auction Feed</title>
+<body style="font-family:sans-serif;max-width:600px;margin:2em auto">
+<h2>Live auction feed</h2>
+<input id="id" placeholder="Auction (item) id" value="1">
+<button onclick="go()">Subscribe</button>
+<ul id="log"></ul>
+<script>
+function go() {
+  const ws = new WebSocket(`ws://${location.host}/ws`);
+  ws.onopen = () => ws.send(JSON.stringify({ action: 'subscribe', auctionId: document.getElementById('id').value }));
+  ws.onmessage = (e) => {
+    const li = document.createElement('li');
+    li.textContent = e.data;
+    document.getElementById('log').prepend(li);
+  };
+}
+</script>
