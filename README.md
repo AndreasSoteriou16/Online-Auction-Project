@@ -50,12 +50,6 @@ npm test
 
 The smoke test registers two users, creates a 4-second auction, places bids, checks the WebSocket events, and checks that a payment is created for the winner.
 
-### Docker (optional)
-
-```bash
-docker compose up --build
-```
-
 ## Technology
 
 Node.js, Express, `ws` (WebSocket), JSON Web Tokens. Each service keeps its data in memory (it resets when the service restarts). Services call each other over HTTP; internal endpoints are protected with a shared key.
