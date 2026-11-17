@@ -7,8 +7,11 @@
 <button onclick="go()">Subscribe</button>
 <ul id="log"></ul>
 <script>
+let ws;
 function go() {
-  const ws = new WebSocket(`ws://${location.host}/ws`);
+  if (ws) ws.close();
+  document.getElementById('log').innerHTML = '';
+  ws = new WebSocket(`ws://${location.host}/ws`);
   ws.onopen = () => ws.send(JSON.stringify({ action: 'subscribe', auctionId: document.getElementById('id').value }));
   ws.onmessage = (e) => {
     const li = document.createElement('li');
